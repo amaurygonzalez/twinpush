@@ -75,19 +75,19 @@ twinpush.create({"broadcast": true,
 }
 ```
 ## Show notifications 
-Obtains details from a previously created notification _[See more](https://developers.twinpush.com/developers/api#get-show)_
+Obtains details from a previously created notification. _[See more](https://developers.twinpush.com/developers/api#get-show)_
 ```ruby
 # for notification_id "f637304cf8c453e5"
 twinpush.show('f637304cf8c453e5') 
 ```
 ## Report
-Obtains delivery statistics for a given notification _[See more](https://developers.twinpush.com/developers/api#get-report)_
+Obtains delivery statistics for a given notification. _[See more](https://developers.twinpush.com/developers/api#get-report)_
 ```ruby
 # for notification_id "f637304cf8c453e5"
 twinpush.report('f637304cf8c453e5') 
 ```
 ## Deliveries
-Obtains paginated list of all the deliveries for a given notification. This is useful to obtain exactly who has been the recipient of the notification and also who has opened it. _[twinpush apidoc: deliveries](https://developers.twinpush.com/developers/api#get-deliveries)_
+Obtains paginated list of all the deliveries for a given notification. This is useful to obtain exactly who has been the recipient of the notification and also who has opened it. _[See more](https://developers.twinpush.com/developers/api#get-deliveries)_
 ```ruby
 # for notification_id "f637304cf8c453e5"
 twinpush.deliveries('f637304cf8c453e5') 
@@ -99,7 +99,7 @@ Makes a paginated search of the notifications sent to an user through the device
 twinpush.inbox('846751075481e7481ea236562e6da9ff') 
 ```
 ## Inbox Summary
-Obtains a fast summary of the notification inbox associated to the current device alias. It offers the total notification count and the unopened notification count. _[twinpush apidoc: inbox summary](https://developers.twinpush.com/developers/api#get-inbox-summary)_.
+Obtains a fast summary of the notification inbox associated to the current device alias. It offers the total notification count and the unopened notification count. _[See more](https://developers.twinpush.com/developers/api#get-inbox-summary)_.
 ```ruby
 # for device_id "846751075481e7481ea236562e6da9ff"
 twinpush.inbox_summary('846751075481e7481ea236562e6da9ff') 
