@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    twinpush (0.0.2)
-      faraday (= 0.15.4)
+    twinpush (0.0.3)
+      faraday (>= 0.12.2)
 
 GEM
   remote: https://rubygems.org/
