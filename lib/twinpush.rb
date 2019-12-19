@@ -19,7 +19,7 @@ class TWINPUSH
       instance_variable_set("@#{key}", value)
       self.class.instance_eval { attr_accessor key.to_sym }
     end
-    @uri = BASE_URI.sub! 'subdomain', @subdomain
+    @uri = BASE_URI.sub 'subdomain', @subdomain
     @client_options = client_options
     @timeout = timeout | DEFAULT_TIMEOUT
   end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twinpush (0.0.3)
+    twinpush (0.0.4)
       faraday (>= 0.12.2)
 
 GEM
