@@ -35,6 +35,11 @@ class TWINPUSH
 
   alias show show_notification
 
+  #obtains notification details in OpenStruct
+  def show_notification_object(notification_id, device_id = nil)
+    OpenStruct.new JSON.parse(show_notification(notification_id, device_id)[:body])
+  end
+
   #creates a new notification to be delivered from the platform
   def create_notification(notification_params)
     path = "#{API_URL}/#{app_id}/notifications"
