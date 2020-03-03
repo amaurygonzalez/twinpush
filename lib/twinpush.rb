@@ -120,6 +120,15 @@ class TWINPUSH
     end
   end
 
+  # Clears all the custom properties for a given device
+  def clear_properties(device_id)
+    path = "#{API_URL}/#{app_id}/devices/#{device_id}/clear_custom_properties"
+    for_uri(uri) do |connection|
+      response = connection.delete(path)
+      build_response(response)
+    end
+  end
+
   private
 
   def validate_keys(authentication_keys)
