@@ -1,12 +1,17 @@
 require 'faraday'
 require 'cgi'
 require 'json'
+require 'measure'
 
 class TWINPUSH
+  include Memory
+
   DEFAULT_TIMEOUT = 30
   FORMAT = :json
   BASE_URI = 'https://subdomain.twinpush.com'
   API_URL = '/api/v2/apps'
+
+  class PayloadSizeError < StandardError; end
 
   attr_accessor :uri, :app_id, :api_token, :api_token_creator
 
@@ -42,10 +47,15 @@ class TWINPUSH
 
   #creates a new notification to be delivered from the platform
   def create_notification(notification_params)
-    path = "#{API_URL}/#{app_id}/notifications"
-    for_uri(uri) do |connection|
-      response = connection.post(path, notification_params.to_json)
-      build_response(response)
+    memory_size = Memory.analyze(notification_params)
+    if memory_size.bytes < 2048 # 2KB limit
+      path = "#{API_URL}/#{app_id}/notifications"
+      for_uri(uri) do |connection|
+        response = connection.post(path, notification_params.to_json)
+        build_response(response)
+      end
+    else
+      raise  PayloadSizeError.new "The notification payload exceeds the 2KB limit"
     end
   end
 
